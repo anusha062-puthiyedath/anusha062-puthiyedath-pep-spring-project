@@ -19,7 +19,7 @@ public class AC {
     public ResponseEntity<Account> registerUser(@RequestBody Account account) {
         Account existingAccount = accountService.getAccountByUsername(account.getUsername());
         if (existingAccount != null) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT); // Return status 409
+            return new ResponseEntity<>(HttpStatus.CONFLICT); 
         }
         Account savedAccount = accountService.saveAccount(account);
         return new ResponseEntity<>(savedAccount, HttpStatus.OK);
